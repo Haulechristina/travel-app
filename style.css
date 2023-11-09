@@ -1,4 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Poppins:wght@400;500;600&family=Volkhov:wght@400;700&display=swap');
+*{
+  box-sizing: border-box; /*Work well in all selectors*/
+  font-family: "Poppins", sans-serif;
+}
 body {
   margin: 0;
-  padding: 0
+  padding: 0;
+}
+
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.3rem 10%;
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+.header::before{
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);  
+  z-index: -1;
+}
+.header::after{
+  content: '';
+  position: absolute;
+  top: 0; 
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background:white;
+  transition: .5s;
+}
+.header:hover:after{
+  left: 100%;
+}
+.logo{
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+
+}
+#check{
+  display: none;
+}
+.navbar a{
+  text-decoration: none;
+  color: #000000;
+  font-weight: 600;
+  margin-left: 2.5rem;
+}
+.signup{
+  border:2px solid #000000; 
+  border-radius: 5px;
+  padding: .1rem .5rem;
+}
+
+.icons{
+  position: absolute;
+  font-size: 2.8rem;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  right: 5%;
+}
+
+/* Edits for banner */
+.header-container{
+  width: 100%;
+  height: 80vh;
+  display: block;
+  margin: auto;
+  padding-top: 100px; 
+  width: 90%;
+ 
+}
+
+.content{
+  float: left;
+  width: 55%;
+  
+}
+.content-img{
+  float: right;
+  width: 40%;
+}
+
+.content-img img{
+  width: 100%;
+  height: auto;
+}
+.content .title-head h1{
+  color: #DF6951;
+  font-family: poppins;
+  font-weight: 700;
+  font-style: normal;
+  line-height: normal;
+  text-transform: uppercase;
+  font-size: 20px;
+
+}
+.content .title-content h1{
+  margin-top: 20px;
+  color:#181E4B; 
+  font-family: Volkhov;
+  font-size: 84px;
+  font-weight: 700;
+  line-height: 89px;
+  letter-spacing: -3.36px;
+
+}
+.content .title-content p{
+  color: #5E6282;
+  margin-top: 10px;
+  font-family: "Open san", sans-serif;
+  font-size: 16x; 
+  line-height: 1.5;
+
+
+}
+.buttons{
+  margin-top: 34px;
+}
+.buttons  a{
+      text-decoration: none;
+      font-size: 18px;
+      padding: 15px 18px;
+      color: #fff;
+      background-color: #f1a501 ;
+      border: none;
+      border-radius: 10px;
+      letter-spacing: 1.5px;
+      
+    }
+    .buttons i{
+      margin-left: 10px;
+      font-size: 24px;
+      border-radius: 50%;
+      background-color: #DF6951;
+      box-shadow: 3px 3px 5px rgba(224, 125, 125, 0.466);
+      padding: 10px;
+      color: #fff;
+    }
+    
+
+ 
+
+/* REPONSIVE BREAKOUT POINT */
+
+@media (max-width: 992px) {
+  .header{
+    padding: 1.3rem 5%;
+  }
+ 
+
+}
+@media (max-width: 768px) {
+  .icons{
+    display: inline-flex;
+
+  }
+  #check:checked~.icons #menu-icon{
+    display: none;
+  }
+  .icons #x-icon{
+    display: none;
+  }
+  #check:checked~.icons #x-icon{
+    display: block;
+  }
+
+  .navbar{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgb(0, 0, 0);
+    overflow: hidden;
+    transition: 0.3s ease;
+  }
+  #check:checked~.navbar{
+    height: 17.7rem;
+  }
+  .navbar a{
+    display: block;
+    opacity: 0;
+    font-size: 1.1rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    transform: translateY(-50px);
+    transition: .3s ease-in;
+    
+  }
+  #check:checked~.navbar a{
+    transform: translateY(0);
+    opacity: 1;
+    transition-delay:calc(.10s * var(--i)) ;
+  }
+  
 }
